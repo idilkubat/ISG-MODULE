@@ -1,0 +1,67 @@
+<odoo>
+
+    <record id="view_safety_form" model="ir.ui.view">
+        <field name="name">safety.form</field>
+        <field name="model">rapor_modul</field>
+        <field name="arch" type="xml">
+            <form string="RAPOR">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <field name="employee_image" widget="image" class="oe_avatar"/>
+                    <group>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="started_job"/>
+                            <field name="department_name"/>
+                        </group>
+                        <group>
+                            <field name="work_email"/>
+                            <field name="work_phone"/>
+                            <field name="age"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="KAZA BİLGİLERİ">
+                            <group>
+                                <field name="kaza_rapor_no"/>
+                                <field name="kaza_tarihi"/>
+                                <field name="kaza_durumu"/>
+                            </group>
+                        </page>
+
+                        <page string="RAMAK KALA ve OLAY BİLDİRİMİ">
+                            <group position="left">
+                                <field name="olay_kategorisi"/>
+                                <field name="bildirim_no"/>
+                                <field name="rk_binasi"/>
+                                <field name="rk_yeri"/>
+                            </group>
+                            <group position="right">
+                                <field name="olaydaki_kisiler"/>
+                                <field name="arac_plakasi"/>
+                                <field name="olay_sekli"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <menuitem id="RAPOR"
+              name="RAPOR"/>
+
+    <act_window id="action_isg"
+                name="RAPOR"
+                res_model="rapor_modul"
+                view_mode="tree,form"
+    />
+    <menuitem id="rapor_tanimlama"
+              name="İŞ KAZASI ARAŞTIRMA RAPORU"
+              parent="RAPOR"
+              action="action_isg"
+    />
+
+</odoo>
