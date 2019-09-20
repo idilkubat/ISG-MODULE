@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from reportlab.platypus.tableofcontents import delta
-
 from odoo import models, fields, api
-
 
 class RamakModule(models.Model):
     _name = 'rapor_modul'
@@ -24,7 +22,7 @@ class RamakModule(models.Model):
         [('rk', 'Ramak Kala'), ('gdu', 'Güvensiz Durum'), ('gda', 'Güvensiz Davranış ')],
         'Olay Bildirim Kategorisi', requried=True)
 
-    bildirim_no = fields.Char(string='Bildirim No: ')
+    bildirim_no = fields.Integer(string='Bildirim No: ')
 
     rk_binasi = fields.Selection(
         [('10PD', '10 Numaralı Piro Depo'), ('200D', '200 Depo'), ('810US', '810 Uset Binası')],
@@ -34,10 +32,10 @@ class RamakModule(models.Model):
     rk_yeri = fields.Char(string='RK. Yeri: ')
 
     olaydaki_kisiler = fields.Char(string='Olayda bulunan kişi(ler): ')
-    arac_plakasi = fields.Char(string='Araç (bisiklet, araba vs.) plakası: ')
+    arac_plakasi = fields.Integer(string='Araç (bisiklet, araba vs.) plakası: ')
     olay_sekli = fields.Text(string='Olayın Oluş Şekli: ')
 
-    kaza_rapor_no = fields.Char(string='Rapor No: ')
+    kaza_rapor_no = fields.Integer(string='Rapor No: ')
     kaza_tarihi = fields.Datetime(string='Kaza Tarihi: ')
     kaza_durumu = fields.Text(string='Kazanın Tarifi: ')
 

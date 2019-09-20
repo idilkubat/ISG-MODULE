@@ -49,19 +49,43 @@
         </field>
     </record>
 
+    <record id="view_isg_report_graph" model="ir.ui.view">
+        <field name="name">isg.report.graph</field>
+        <field name="model">rapor_modul</field>
+        <field name="arch" type="xml">
+            <graph string="ISG Analysis">
+                <field name="kaza_rapor_no" type="column"/>
+                <field name="arac_plakasi" type="row"/>
+                <field name="kaza_durumu" type="column"/>
+                <field name="bildirim_no" type="measure"/>
+            </graph>
+        </field>
+    </record>
 
-    <menuitem id="RAPOR"
-              name="RAPOR"/>
+    <act_window id="action_isg_graph"
+                name="ISG Analysis"
+                res_model="rapor_modul"
+                view_mode="graph"
+                target="current"/>
 
     <act_window id="action_isg"
                 name="RAPOR"
                 res_model="rapor_modul"
-                view_mode="tree,form"
-    />
+                view_mode="tree,form"/>
+
+    <menuitem id="RAPOR"
+              name="RAPOR"/>
+
     <menuitem id="rapor_tanimlama"
               name="İŞ KAZASI ARAŞTIRMA RAPORU"
               parent="RAPOR"
               action="action_isg"
+    />
+
+    <menuitem id="rapor_istatistiği"
+              name="İstatistikler"
+              parent="rapor_tanimlama"
+              action="action_isg_graph"
     />
 
 </odoo>
